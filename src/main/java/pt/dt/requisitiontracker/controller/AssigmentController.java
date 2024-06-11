@@ -38,10 +38,10 @@ public class AssigmentController {
         boolean isAdminSigned = request.isUserInRole("ROLE_ADMIN");
         if (isAdminSigned) {
             model.addAttribute("users", userService.findAll());
-
+            model.addAttribute("users", userService.findAllConditions(signedUser));
         }
         else {
-            model.addAttribute("users", userService.findAllContions(signedUser));
+            model.addAttribute("users", userService.findAllConditions(signedUser));
         }
     }
 
@@ -50,7 +50,7 @@ public class AssigmentController {
         String email = principal.getName();
         User signedUser = userService.getUserByEmail(email);
         model.addAttribute("selectedUser", userService.getUserById(userId));
-        model.addAttribute("users", userService.findAllContions(signedUser));
+        model.addAttribute("users", userService.findAllConditions(signedUser));
         model.addAttribute("freeTasks", taskService.findFreeTasks());
         return "forms/assignment";
     }

@@ -7,7 +7,208 @@
     <title>Register</title>
     <style>
         body {
-          background-image: url('images/req.jpg');
+            background-image: url('images/requisition.png');
+            background-color: transparent;
+        }
+        .card {
+            background-image: url('image.jpg');
+            background-color: transparent;
+            border-color: rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+        }
+        .form-control:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+        }
+        .form-control option {
+            padding: 0.5rem;
+            background-color: #fff;
+            color: #495057;
+        }
+        .form-control option:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <!--/*/ <th:block th:include="fragments/header :: header('register')"></th:block> /*/-->
+</header>
+
+<main class="container">
+    <div class="card mb-3">
+
+        <h1 class="my-highest-header card-header">Register</h1>
+
+        <div class="card card-body">
+            <div class="alert alert-info" th:if="${exist}">
+                <p class="text text-center">
+                    User with this email exists
+                </p>
+            </div>
+
+            <form th:action="@{/register}" th:object="${user}" method="post">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="form-group">
+                            <label for="email" class="form-control-label">Email</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-at"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" th:field="*{email}" id="email"/>
+                            </div>
+                            <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                            <span th:if="${exist}" style="color:red;">Email already exists</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-control-label">Password</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control password my-password-input" th:field="*{password}" id="password"/>
+                                <div class="input-group-append">
+                                    <span class="input-group-text my-append-eye">
+                                        <i class="far fa-eye show-password"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="form-control-label">Full Name</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" th:field="*{name}" id="name"/>
+                            </div>
+                            <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                            <span th:if="${name_exist}" style="color:red;">Name already exists</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="department" class="form-control-label">Department</label>
+                            <select class="form-control" th:field="*{department}" id="department">
+                                <option value="" enabled selected><--Select your department--></option>
+                                <option value="Department of Biology">Department of Biology</option>
+                                <option value="Department of Physics">Department of Physics</option>
+                                <option value="Department of Chemistry">Department of Chemistry</option>
+                                <option value="Department of Mathematics">Department of Mathematics</option>
+                                <option value="Creative Art and Design">Creative Art and Design</option>
+                                <option value="Clothing and Textile Technology">Clothing and Textile Technology</option>
+                                <option value="Entrepreneurship and Business Management">Entrepreneurship and Business Management</option>
+                                <option value="Accounting and Finance">Accounting and Finance</option>
+                                <option value="Supply Chain Management">Supply Chain Management</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Consumer Science and Retail Management">Consumer Science and Retail Management</option>
+                                <option value="Accounting and Finance">Accounting and Finance</option>
+                                <option value="Mechatronics Engineering">Mechatronics Engineering</option>
+                                <option value="Production Engineering">Production Engineering</option>
+                                <option value="ICT and Electronics">ICT and Electronics</option>
+                                <option value="Environmental Engineering">Environmental Engineering</option>
+                                <option value="Fuels and Energy Engineering">Fuels and Energy Engineering</option>
+                                <option value="Master of Science in Strategic Management ">Master of Science in Strategic Management </option>
+                                <option value="Master of Science in Supply Chain Management">Master of Science in Supply Chain Management</option>
+                                <option value="Master of Science in Applied Entrepreneurship and Business Management">Master of Science in Applied Entrepreneurship and Business Management</option>
+                                <option value="Master of Science in Big Data Analytics">Master of Science in Big Data Analytics</option>
+                                <option value="Master of Science in Accountancy">Master of Science in Accountancy</option>
+                                <option value="Master of Science in International Marketing">Master of Science in International Marketing</option>
+                                <option value="Master of Strategic Management">Master of Strategic Management</option>
+                                <option value="Department of Wildlife Ecology and Conservation">Department of Wildlife Ecology and Conservation</option>
+                                <option value="Department of Freshwater and Fishery Science">Department of Freshwater and Fishery Science</option>
+                                <option value="Environmental Conservation and GeoInformatics">Environmental Conservation and GeoInformatics</option>
+                                <option value="Environmental Science and Technology">Environmental Science and Technology</option>
+                                <option value="Department of Hospitality and Tourism">Department of Hospitality and Tourism</option>
+                                <option value="Department of Travel and Recreation">Department of Travel and Recreation</option>
+                                <option value="Centre for Indigenous Knowledge and Living Heritage">Centre for Indigenous Knowledge and Living Heritage</option>
+                                <option value="Centre For Development Studies">Centre For Development Studies</option>
+                                <option value="Centre For Language and Communication Studies">Centre For Language and Communication Studies</option>
+                                <option value="Materials Science,Processing and Engineering Technology">Materials Science,Processing and Engineering Technology</option>
+                                <option value="Biotechnology">Biotechnology</option>
+                                <option value="Agricultural Engineering">Agricultural Engineering</option>
+                                <option value="Food Science and Technology">Food Science and Technology</option>
+                                <option value="Crop Science and Post Harvest Technology">Crop Science and Post Harvest Technology</option>
+                                <option value="Animal Production and Technology">Animal Production and Technology</option>
+                                <option value="Heritage">Heritage</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="school" class="form-control-label">School</label>
+                            <select class="form-control" th:field="*{school}" id="school">
+                                <option value="" enabled selected><--Select your School--></option>
+                                <option value="School of Natural Sciences and Mathematics">School of Natural Sciences and Mathematics</option>
+                                <option value="School of Art and Design">School of Art and Design</option>
+                                <option value="School of Entrepreneurship and Business Sciences">School of Entrepreneurship and Business Sciences</option>
+                                <option value="School of Engineering Science and Technology">School of Engineering Science and Technology</option>
+                                <option value="Graduate Business School">Graduate Business School</option>
+                                <option value="School of Wildlife and Environment Science">School of Wildlife and Environment Science</option>
+                                <option value="School of Hospitality and Tourism">School of Hospitality and Tourism</option>
+                                <option value="Institute of Lifelong Learning and Development Studies">Institute of Lifelong Learning and Development Studies</option>
+                                <option value="Institute of Materials Science, Processing and Engineering Technology">Institute of Materials Science, Processing and Engineering Technology</option>
+                                <option value="School of Health Sciences and Technology">School of Health Sciences and Technology</option>
+                                <option value="School of Agricultural Science and Technology">School of Agricultural Science and Technology</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+                        <div class="text text-danger" th:if="${#fields.hasErrors('school')}" th:errors="*{school}"></div>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <div class="card card-body mb-3">
+                            <img src="images/user.png" alt="user photo" class="embed-responsive embed-responsive-3by4">
+                            <input type="hidden" class="form-control" id="photo" name="photo" th:attr="value=${'images/user.png'}"/>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Submit" class="btn btn-primary"/>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+</footer>
+
+<!--show password when mouse is over eye icon-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    &lt;!&ndash;/*/ <th:block th:include="fragments/head :: head"></th:block> /*/&ndash;&gt;
+    <title>Register</title>
+    <style>
+        body {
+          background-image: url('images/requisition.png');
           background-color: transparent;
         }
         .card {
@@ -22,7 +223,7 @@
 <body>
 
 <header>
-    <!--/*/ <th:block th:include="fragments/header :: header('register')"></th:block> /*/-->
+    &lt;!&ndash;/*/ <th:block th:include="fragments/header :: header('register')"></th:block> /*/&ndash;&gt;
 </header>
 
 <main class="container">
@@ -85,6 +286,17 @@
                             <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                             <span th:if="${name_exist}" style="color:red;">Name already exists</span>
                         </div>
+                        <div class="form-group">
+                            <label for="department" class="form-control-label">Department</label>
+                            <select class="form-control" th:field="*{department}" id="department">
+                                <option value="" disabled selected>Select your department</option>
+                                <option value="HR">HR</option>
+                                <option value="Finance">Finance</option>
+                                <option value="IT">IT</option>
+                                <option value="Marketing">Marketing</option>
+                                &lt;!&ndash; Add more options as needed &ndash;&gt;
+                            </select>
+                        </div>
                     </div>
                     <div class="col-6 col-sm-3">
                         <div class="card card-body mb-3">
@@ -100,11 +312,11 @@
 </main>
 
 <footer class="footer">
-    <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+    &lt;!&ndash;/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/&ndash;&gt;
 </footer>
 
-<!--show password when mouse is over eye icon-->
+&lt;!&ndash;show password when mouse is over eye icon&ndash;&gt;
 <script src="js/main.js"></script>
 
 </body>
-</html>
+</html>-->

@@ -17,10 +17,15 @@
 
     <div class="card mb-3">
         <div class="card-header">
-            <h1 class="my-highest-header">Assign tasks to user</h1>
+            <h1 class="my-highest-header">Assign Requisition(s) to user</h1>
         </div>
         <!--card with all user miniatures, full width--------------------------------------->
         <div class="card-body">
+
+            <!-- Display message if present -->
+            <div th:if="${message}" class="alert alert-warning" role="alert">
+                <span th:text="${message}"></span>
+            </div>
 
             <h2 class="my-second-header">Choose user</h2>
 
@@ -74,15 +79,14 @@
                     <div class="card mr-2">
                         <div class="card-header">
                             <h2 class="my-second-header"
-                                th:text="'Tasks in Progress ('+${selectedUser.getName()}+' is working on them)'"
+                                th:text="'Requisition(s) in Progress ('+${selectedUser.getName()}+' is working on them)'"
                             ></h2>
                         </div>
                         <table class="table table-hover text-left">
                             <thead class="table-info">
                             <tr>
-                                <th class="col-sm-6">Task name</th>
+                                <th class="col-sm-6">Requisition Type</th>
                                 <th class="col-sm-4">Days left</th>
-                                <th class="col-sm-2">Action</th>
                             </tr>
                             </thead>
 
@@ -98,8 +102,8 @@
                                     <!--/*/ <th:block th:include="fragments/days-left-until-deadline :: daysLeft(${t})"></th:block> /*/-->
                                 </td>
 
-                                <!--Unassign button-->
-                                <td>
+                                <!--Unassign button, only shown to admins-->
+                                <td sec:authorize="hasRole('ROLE_ADMIN')">
                                     <a th:href="${'/assignment/unassign/' + selectedUser.getId()+'/'+t.id}"
                                        class="btn btn-outline-success btn-sm mb-2"
                                     >Unassign</a>
@@ -111,7 +115,7 @@
                             <!--left table content when user has no task in progress-->
                             <tbody th:if="${selectedUser.getTasksInProgress().size() eq 0}">
                             <tr>
-                                <td th:text="${'There are no tasks assigned to '+selectedUser.getName()}"></td>
+                                <td th:text="${'There are no requisition(s) assigned to '+selectedUser.getName()}"></td>
                             </tr>
                             </tbody>
 
@@ -124,7 +128,7 @@
                     <div class="card ml-2">
                         <div class="card-header">
                             <h2 class="my-second-header"
-                                th:text="'Free Tasks (assign them to '+${selectedUser.getName()}+')'"
+                                th:text="'Free Requisition(s) (assign them to '+${selectedUser.getName()}+')'"
                             ></h2>
                         </div>
 
@@ -132,13 +136,12 @@
 
                             <thead class="table-secondary">
                             <tr>
-                                <th class="col-sm-6">Task name</th>
+                                <th class="col-sm-6">Requisition Type</th>
                                 <th class="col-sm-4">Days left</th>
-                                <th class="col-sm-2">Action</th>
                             </tr>
                             </thead>
 
-                            <!--right table content there are some free tasks-->
+                            <!--right table content when there are some free tasks-->
                             <tbody>
                             <tr th:each="ft:${freeTasks}" th:unless="${freeTasks.size()==0}">
 
@@ -158,9 +161,9 @@
                                 </td>
                             </tr>
 
-                            <!--right table content there are some free tasks-->
+                            <!--right table content when there are no free tasks-->
                             <tr th:if="${freeTasks.size()==0}">
-                                <td>There are no tasks to assign</td>
+                                <td>There is are requisition(s) to assign</td>
                             </tr>
                             </tbody>
 
@@ -183,3 +186,5 @@
 
 </body>
 </html>
+
+

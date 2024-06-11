@@ -6,14 +6,28 @@
     <title>Login</title>
     <style>
         body {
-          background-image: url('images/req.jpg');
+          background-image: url('images/requisition.png');
         }
         .card {
-  background-image: url('image.jpg');
-  background-color: transparent;
-  border-color: rgba(0,0,0,0.1);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+           background-image: url('image.jpg');
+           background-color: transparent;
+           border-color: rgba(0,0,0,0.1);
+           box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        a {
+          color: red;
+        }
+
+        .forgot-password-link {
+          color: red;
+          font-weight: bold;
+          text-decoration: underline;
+        }
+
+        .forgot-password-link:hover {
+          color: orange;
+        }
     </style>
 </head>
 
@@ -73,6 +87,7 @@
 
                     <input type="submit" value="Submit" class="btn btn-primary"/>
                 </form>
+                <span><a th:href="@{/password-request}" class="forgot-password-link">Forgot Password?</a></span>
             </div>
         </div>
 

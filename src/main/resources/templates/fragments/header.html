@@ -1,11 +1,15 @@
-<html lang="eng"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-      xmlns="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<html
+        xmlns="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.w3.org/1999/xhtml">
+
 
 <header th:fragment="header(activeTab)">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <a class="navbar-brand mr-4" href="#">Requisition Tracker</a>
+        <a class="navbar-brand mr-4" href="#">
+            <img src="images/cut.jpg" alt="Logo" style="height: 30px; margin-right: 10px;">
+             Requisition System
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,17 +18,10 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
 
-                <!--Home-->
-<!--                <li th:class="${activeTab == 'home'}? 'active nav-item mr-4' : 'nav-item mr-4'">-->
-<!--                    <a class="nav-link" href="/">Home</a>-->
-<!--                </li>-->
-
-
-
                 <!--Tasks list-->
                 <li th:class="${activeTab == 'tasks-list'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a class="nav-link" href="/tasks">Requisition List</a>
+                    <a class="nav-link" href="/tasks">Requisitions</a>
                 </li>
 
                 <!--Assign tasks-->
@@ -36,13 +33,13 @@
                 <!--Create New Task-->
                 <li th:class="${activeTab == 'create-new-task'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/task/create">Upload Requisition</a>
+                    <a class="nav-link" href="/task/create">Create Requisition</a>
                 </li>
 
                 <!--Users List-->
                 <li th:class="${activeTab == 'users-list'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a class="nav-link" href="/users">Users List</a>
+                    <a class="nav-link" href="/users">Users</a>
                 </li>
                 <li th:class="${activeTab == 'tasks-progress'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="isAuthenticated()">
@@ -53,9 +50,8 @@
                 <!--Profile-->
                 <li th:class="${activeTab == 'profile'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/profile">Your Profile</a>
+                    <a class="nav-link" href="/profile">Profile</a>
                 </li>
-
 
             </ul>
 

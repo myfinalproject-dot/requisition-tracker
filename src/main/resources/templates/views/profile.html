@@ -1,49 +1,57 @@
 <!DOCTYPE html>
-<html lang="eng"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="eng" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org"
+      xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
-    <!--/*/ <th:block th:include="fragments/head :: head"></th:block> /*/-->
+    <th:block th:include="fragments/head :: head"></th:block>
     <title>Profile</title>
 
-   < <style>
+    <style>
         /* Form container */
         #updateForm {
-          display: flex;
-          align-items: center;
-          gap: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         /* Hidden input */
         #updateForm input[type="hidden"] {
-          display: none;
+            display: none;
         }
 
         /* Select dropdown */
         #updateForm select {
-          padding: 5px 10px;
-          font-size: 14px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         /* Submit button */
         #updateForm button[type="submit"] {
-          padding: 5px 10px;
-          font-size: 14px;
-          background-color: #4CAF50;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
+
+        /* Underline download link */
+        .download-link {
+            text-decoration: underline;
+        }
+        .download-link:hover {
+            text-decoration: underline;
+            color: red;
+       }
     </style>
 </head>
 
 <body>
 
 <header>
-    <!--/*/ <th:block th:include="fragments/header :: header('profile')"></th:block> /*/-->
+    <th:block th:include="fragments/header :: header('profile')"></th:block>
 </header>
 
 <main class="container">
@@ -70,15 +78,13 @@
 
                 <thead class="table-info">
                 <tr>
-                    <th style="width:10%">Task name</th>
-                    <th style="width:30%" class="d-none d-sm-table-cell">Description</th>
-                    <th style="width:23%" class="d-none d-sm-table-cell">DownloadLink</th>
-                    <th style="width:16%">Date</th>
-                    <th style="width:7%">Days left</th>
-                    <th style="width:7%">Completed</th>
-                    <th style="width:7%">Action</th>
-
-
+                    <th style="width:19%">Requisition Type</th>
+                    <th style="width:40%" class="d-none d-sm-table-cell">Description</th>
+                    <th style="width:13%" class="d-none d-sm-table-cell">Download Link</th>
+                    <th style="width:7%" class="d-none d-lg-table-cell" >Due Date</th>
+                    <th style="width:7%" class="d-none d-lg-table-cell" >Days left</th>
+                    <th style="width:7%" class="d-none d-lg-table-cell" >Completed</th>
+                    <th style="width:7%" class="d-none d-lg-table-cell" >Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -86,35 +92,40 @@
 
                     <td class="text-left" th:text="${t.name}"></td>
                     <td class="text-left d-none d-sm-table-cell" th:text="${t.description}"></td>
-                    <td class="text-left d-none d-sm-table-cell" th:text="${t.downloadlink}"></td>
+                    <td class="text-left d-none d-sm-table-cell">
+                        <a th:href="${t.downloadlink}" class="download-link" th:text="${t.downloadlink}"></a>
+                    </td>
 
                     <td th:text="${#temporals.format(t.date, 'dd-MM-yyyy')}"></td>
 
-                    <!--Days left-->
+                    <!-- Days left -->
                     <td class="text-center col-1">
-                        <!--/*/ <th:block th:include="fragments/days-left-until-deadline :: daysLeft(${t})"></th:block> /*/-->
+                        <th:block th:include="fragments/days-left-until-deadline :: daysLeft(${t})"></th:block>
                     </td>
 
-                    <!--Completed/In progress-->
+                    <!-- Completed/In progress -->
                     <td>
-                        <a th:href="${'/profile/mark-done/' + t.id + '?status=APPROVED'}"
-                           th:class="${t.owner==null} ? 'disabled nav-link my-link' : 'nav-link my-link'"
-                        ><i th:class="${t.completed} ? 'far fa-check-square my-check':'far fa-square my-check'"></i>
+                        <a th:href="${'/profile/mark-done/' + t.id + '?status=ACCEPTED'}"
+                           th:class="${t.owner == null} ? 'disabled nav-link my-link' : 'nav-link my-link'">
+                            <i th:class="${t.completed} ? 'far fa-check-square my-check' : 'far fa-square my-check'"></i>
                         </a>
                     </td>
 
                     <!-- Status Selection Dropdown -->
                     <td>
-                        <form id="updateForm" th:action="@{/profile/update-status}" method="post">
-                            <input type="hidden" name="taskId" th:value="${t.id}" />
-                            <select name="status">
-                                <option value="ACCEPTED">Approved</option>
-                                <option value="REJECTED">Rejected</option>
-                            </select>
-                            <button type="submit" onclick="showStatusUpdatedMessage()">Update</button>
-                        </form>
 
                         <!-- Modal -->
+
+                        <form id="updateForm" th:action="@{/profile/update-status}" method="post">
+                            <input type="hidden" name="taskId" th:value="${t.id}" />
+                            <label class="d-none d-lg-table-cell">
+                                <select name="status" >
+                                    <option value="ACCEPTED" th:selected="${t.status == 'ACCEPTED'}">ACCEPT</option>
+                                    <option value="REJECTED" th:selected="${t.status == 'REJECTED'}">REJECT</option>
+                                </select>
+                            </label>
+                            <button type="submit" onclick="showStatusUpdatedMessage()" class="d-none d-lg-table-cell">Update</button>
+                        </form>
                         <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -138,14 +149,14 @@
                                 // Close the modal after 3 seconds (3000 milliseconds)
                                 setTimeout(function() {
                                     $('#statusModal').modal('hide');
-                                }, 100000);
+                                }, 3000);
                             }
                         </script>
                     </td>
                 </tr>
 
-                <tr th:if="${user.tasksOwned.size()==0}">
-                    <td colspan="5" th:text="${'There are no tasks assigned to '+ user.name}"></td>
+                <tr th:if="${user.tasksOwned.size() == 0}">
+                    <td colspan="7" th:text="${'There are no requisitions assigned to ' + user.name}"></td>
                 </tr>
                 </tbody>
             </table>
@@ -154,11 +165,17 @@
 </main>
 
 <footer class="footer">
-    <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+    <th:block th:include="fragments/footer :: footer"></th:block>
 </footer>
 
-<!--remain scroll position after redirect-->
+<!-- Remain scroll position after redirect -->
 <script src="js/main.js"></script>
 
 </body>
 </html>
+
+
+
+
+
+
