@@ -13,7 +13,10 @@ import pt.dt.requisitiontracker.configuration.FileStoragePojo;
 public class RequistionApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RequistionApplication.class, args);
+        SpringApplication app = new SpringApplication(RequisitionApplication.class);
+        app.setDefaultProperties(Collections.singletonMap("server.port", System.getenv("PORT")));
+        app.run(args);
+        
     }
 
 }
