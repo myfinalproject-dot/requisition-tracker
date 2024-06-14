@@ -73,8 +73,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "Vice-Chancellor",
                 "112233",
                 "images/admin.png",
-                "NULL",
-                "NULL");
+                "null",
+                "null");
         userService.createUser(VChancellor);
         userService.changeRoleToAdmin(VChancellor);
 
@@ -83,7 +83,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(School of Natural Sciences and Mathematics)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "School of Natural Sciences and Mathematics");
         userService.createUser(dean);
         userService.changeRoleToAdmin(dean);
@@ -93,7 +93,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(School of Art and Design)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "School of Art and Design");
         userService.createUser(dean1);
         userService.changeRoleToAdmin(dean1);
@@ -103,7 +103,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(School of Entrepreneurship and Business Sciences)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "School of Entrepreneurship and Business Sciences");
         userService.createUser(dean2);
         userService.changeRoleToAdmin(dean2);
@@ -113,7 +113,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(School of Engineering Science and Technology)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "School of Engineering Science and Technology");
         userService.createUser(dean3);
         userService.changeRoleToAdmin(dean3);
@@ -123,7 +123,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(Graduate Business School)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "Graduate Business School");
         userService.createUser(dean4);
         userService.changeRoleToAdmin(dean4);
@@ -133,7 +133,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(School of Wildlife and Environment Science)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "School of Wildlife and Environment Science");
         userService.createUser(dean5);
         userService.changeRoleToAdmin(dean5);
@@ -143,7 +143,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(School of Hospitality and Tourism)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "School of Hospitality and Tourism");
         userService.createUser(dean6);
         userService.changeRoleToAdmin(dean6);
@@ -153,7 +153,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(Institute of Lifelong Learning and Development Studies)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "Institute of Lifelong Learning and Development Studies");
         userService.createUser(dean7);
         userService.changeRoleToAdmin(dean7);
@@ -163,7 +163,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(School of Agricultural Science and Technology)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "School of Agricultural Science and Technology");
         userService.createUser(dean8);
         userService.changeRoleToAdmin(dean8);
@@ -173,7 +173,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(Institute of Materials Science, Processing and Engineering Technology)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "Institute of Materials Science, Processing and Engineering Technology");
         userService.createUser(dean9);
         userService.changeRoleToAdmin(dean9);
@@ -183,7 +183,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "dean(School of Health Sciences and Technology)",
                 "112233",
                 "images/admin.png",
-                "NULL",
+                "null",
                 "School of Health Sciences and Technology");
         userService.createUser(dean10);
         userService.changeRoleToAdmin(dean10);
@@ -191,7 +191,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod1= new User(
                 "hodbiology@gmail.com",
-                "hod(Department of Biology)",
+                "Chairman(Department of Biology)",
                 "112233",
                 "images/admin.png",
                 "Department of Biology",
@@ -201,7 +201,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod2= new User(
                 "hodphysics@gmail.com",
-                "hod(Department of Physics)",
+                "Chairman(Department of Physics)",
                 "112233",
                 "images/admin.png",
                 "Department of Physics",
@@ -211,7 +211,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod3= new User(
                 "hodchemistry@gmail.com",
-                "hod(Department of Chemistry)",
+                "Chairman(Department of Chemistry)",
                 "112233",
                 "images/admin.png",
                 "Department of Chemistry",
@@ -221,7 +221,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod4= new User(
                 "hodmath@gmail.com",
-                "hod(Department of Mathematics)",
+                "Chairman(Department of Mathematics)",
                 "112233",
                 "images/admin.png",
                 "Department of Mathematics",
@@ -231,7 +231,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod5= new User(
                 "hodartdesign@gmail.com",
-                "hod(Creative Art and Design)",
+                "Chairman(Creative Art and Design)",
                 "112233",
                 "images/admin.png",
                 "Creative Art and Design",
@@ -241,7 +241,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod6= new User(
                 "hodtextile@gmail.com",
-                "hod(Clothing and Textile Technology)",
+                "Chairman(Clothing and Textile Technology)",
                 "112233",
                 "images/admin.png",
                 "Clothing and Textile Technology",
@@ -251,7 +251,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod7= new User(
                 "hodbmanagement@gmail.com",
-                "hod(Entrepreneurship and Business Management)",
+                "Chairman(Entrepreneurship and Business Management)",
                 "112233",
                 "images/admin.png",
                 "Entrepreneurship and Business Management",
@@ -273,7 +273,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod10= new User(
                 "hodsupplychain@gmail.com",
-                "hod(Supply Chain Management)",
+                "Chairman(Supply Chain Management)",
                 "112233",
                 "images/admin.png",
                 "Supply Chain Management",
@@ -283,7 +283,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod11= new User(
                 "hodmarketing@gmail.com",
-                "hod(Marketing)",
+                "Chairman(Marketing)",
                 "112233",
                 "images/admin.png",
                 "Marketing",
@@ -293,7 +293,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod12= new User(
                 "hodscienceretail@gmail.com",
-                "hod(Consumer Science and Retail Management)",
+                "Chairman(Consumer Science and Retail Management)",
                 "112233",
                 "images/admin.png",
                 "Consumer Science and Retail Management",
@@ -303,7 +303,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod13= new User(
                 "hodaccountfinance@gmail.com",
-                "hod(Accounting and Finance)",
+                "Chairman(Accounting and Finance)",
                 "112233",
                 "images/admin.png",
                 "Accounting and Finance",
@@ -313,7 +313,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod14= new User(
                 "hodmechatronics@gmail.com",
-                "hod(Mechatronics Engineering)",
+                "Chairman(Mechatronics Engineering)",
                 "112233",
                 "images/admin.png",
                 "Mechatronics Engineering",
@@ -323,7 +323,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod15= new User(
                 "hodproductioneng@gmail.com",
-                "hod(Production Engineering)",
+                "Chairman(Production Engineering)",
                 "112233",
                 "images/admin.png",
                 "Production Engineering",
@@ -333,7 +333,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod16= new User(
                 "hodictelectronics@gmail.com",
-                "hod(ICT and Electronics)",
+                "Chairman(ICT and Electronics)",
                 "112233",
                 "images/admin.png",
                 "ICT and Electronics",
@@ -343,7 +343,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod17= new User(
                 "hodenveng@gmail.com",
-                "hod(Environmental Engineering)",
+                "Chairman(Environmental Engineering)",
                 "112233",
                 "images/admin.png",
                 "Environmental Engineering",
@@ -353,7 +353,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod18= new User(
                 "hodfuels@gmail.com",
-                "hod(Fuels and Energy Engineering)",
+                "Chairman(Fuels and Energy Engineering)",
                 "112233",
                 "images/admin.png",
                 "Fuels and Energy Engineering",
@@ -363,7 +363,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod19= new User(
                 "hodstrategic@gmail.com",
-                "hod(Master of Science in Strategic Management)",
+                "Chairman(Master of Science in Strategic Management)",
                 "112233",
                 "images/admin.png",
                 "Master of Science in Strategic Management",
@@ -373,7 +373,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod20= new User(
                 "hodmastersupplychain@gmail.com",
-                "hod(Master of Science in Supply Chain Management)",
+                "Chairman(Master of Science in Supply Chain Management)",
                 "112233",
                 "images/admin.png",
                 "Master of Science in Supply Chain Management",
@@ -383,7 +383,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod21= new User(
                 "hodappliedentrepreneurship@gmail.com",
-                "hod(Master of Science in Applied Entrepreneurship and Business Management)",
+                "Chairman(Master of Science in Applied Entrepreneurship and Business Management)",
                 "112233",
                 "images/admin.png",
                 "Master of Science in Applied Entrepreneurship and Business Management",
@@ -393,7 +393,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod22= new User(
                 "hodbigdata@gmail.com",
-                "hod(Master of Science in Big Data Analytics)",
+                "Chairman(Master of Science in Big Data Analytics)",
                 "112233",
                 "images/admin.png",
                 "Master of Science in Big Data Analytics",
@@ -403,7 +403,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod23= new User(
                 "hodmasteraccountancy@gmail.com",
-                "hod(Master of Science in Accountancy)",
+                "Chairman(Master of Science in Accountancy)",
                 "112233",
                 "images/admin.png",
                 "Master of Science in Accountancy",
@@ -413,7 +413,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod24= new User(
                 "hodmastermarketing@gmail.com",
-                "hod(Master of Science in International Marketing)",
+                "Chairman(Master of Science in International Marketing)",
                 "112233",
                 "images/admin.png",
                 "Master of Science in International Marketing",
@@ -423,7 +423,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod25= new User(
                 "hodmasterstrategic@gmail.com",
-                "hod(Master of Strategic Management)",
+                "Chairman(Master of Strategic Management)",
                 "112233",
                 "images/admin.png",
                 "Master of Strategic Management",
@@ -433,7 +433,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod26= new User(
                 "hodecology@gmail.com",
-                "hod(Department of Wildlife Ecology and Conservation)",
+                "Chairman(Department of Wildlife Ecology and Conservation)",
                 "112233",
                 "images/admin.png",
                 "Department of Wildlife Ecology and Conservation",
@@ -443,7 +443,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod27= new User(
                 "hodfishery@gmail.com",
-                "hod(Department of Freshwater and Fishery Science)",
+                "Chairman(Department of Freshwater and Fishery Science)",
                 "112233",
                 "images/admin.png",
                 "Department of Freshwater and Fishery Science",
@@ -453,7 +453,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod28= new User(
                 "hodgeoinformatics@gmail.com",
-                "hod(Environmental Conservation and GeoInformatics)",
+                "Chairman(Environmental Conservation and GeoInformatics)",
                 "112233",
                 "images/admin.png",
                 "Environmental Conservation and GeoInformatics",
@@ -463,7 +463,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod29= new User(
                 "hodenvtechno@gmail.com",
-                "hod(Environmental Science and Technology)",
+                "Chairman(Environmental Science and Technology)",
                 "112233",
                 "images/admin.png",
                 "Environmental Science and Technology",
@@ -473,7 +473,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod30= new User(
                 "hodtourismhosp@gmail.com",
-                "hod(Department of Hospitality and Tourism)",
+                "Chairman(Department of Hospitality and Tourism)",
                 "112233",
                 "images/admin.png",
                 "Department of Hospitality and Tourism",
@@ -483,7 +483,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod31= new User(
                 "hodtravel@gmail.com",
-                "hod(Department of Travel and Recreation)",
+                "Chairman(Department of Travel and Recreation)",
                 "112233",
                 "images/admin.png",
                 "Department of Travel and Recreation",
@@ -493,7 +493,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod32= new User(
                 "hodlivingheritage@gmail.com",
-                "hod(Centre for Indigenous Knowledge and Living Heritage)",
+                "Chairman(Centre for Indigenous Knowledge and Living Heritage)",
                 "112233",
                 "images/admin.png",
                 "Centre for Indigenous Knowledge and Living Heritage",
@@ -503,7 +503,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod33= new User(
                 "hodcentredev@gmil.com",
-                "hod(Centre For Development Studies)",
+                "Chairman(Centre For Development Studies)",
                 "112233",
                 "images/admin.png",
                 "Centre For Development Studies",
@@ -513,7 +513,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod34= new User(
                 "hodlangcomm@gmail.com",
-                "hod(Centre For Language and Communication Studies)",
+                "Chairman(Centre For Language and Communication Studies)",
                 "112233",
                 "images/admin.png",
                 "Centre For Language and Communication Studies",
@@ -523,7 +523,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod35= new User(
                 "hodprocesseng@gmail.com",
-                "hod(Materials Science,Processing and Engineering Technology)",
+                "Chairman(Materials Science,Processing and Engineering Technology)",
                 "112233",
                 "images/admin.png",
                 "Materials Science,Processing and Engineering Technology",
@@ -533,7 +533,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod36= new User(
                 "hodbiotechn@gmail.com",
-                "hod(Biotechnology)",
+                "Chairman(Biotechnology)",
                 "112233",
                 "images/admin.png",
                 "Biotechnology",
@@ -543,7 +543,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod37= new User(
                 "hodagriceng@gmail.com",
-                "hod(Agricultural Engineering)",
+                "Chairman(Agricultural Engineering)",
                 "112233",
                 "images/admin.png",
                 "Agricultural Engineering",
@@ -553,7 +553,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod38= new User(
                 "hodfoodtech@gmail.com",
-                "hod(Food Science and Technology)",
+                "Chairman(Food Science and Technology)",
                 "112233",
                 "images/admin.png",
                 "Food Science and Technology",
@@ -563,7 +563,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod39= new User(
                 "hodcropharvest@gmail.com",
-                "hod(Crop Science and Post Harvest Technology)",
+                "Chairman(Crop Science and Post Harvest Technology)",
                 "112233",
                 "images/admin.png",
                 "Crop Science and Post Harvest Technology",
@@ -573,7 +573,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         User hod40= new User(
                 "hodanimalprod@gmail.com",
-                "hod(School of Agricultural Science and Technology)",
+                "Chairman(School of Agricultural Science and Technology)",
                 "112233",
                 "images/admin.png",
                 "Animal Production and Technology",
@@ -586,8 +586,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 "accounts",
                 "112233",
                 "images/admin.png",
-                "NULL",
-                "NULL");
+                "null",
+                "null");
         userService.createUser(accounts);
         userService.changeRoleToAdmin(accounts);
 
@@ -600,17 +600,6 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         //TASKS --------------------------------------------------------------------------------------------------------
         LocalDate today = LocalDate.now();
 
-        /* Example Tasks
-        taskService.createTask(new Task(
-                "Task Name",
-                "Task Description",
-                today.minusDays(10),
-                true,
-                userService.getUserByEmail("user@example.com").getName(),
-                userService.getUserByEmail("user@example.com"),
-                "filename"
-        ));
-        */
         taskService.findAll().stream().map(t -> "saved task: '" + t.getName()
                 + "' for owner: " + getOwnerNameOrNoOwner(t)).forEach(logger::info);
     }
@@ -619,188 +608,3 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         return task.getOwner() == null ? "no owner" : task.getOwner().getName();
     }
 }
-
-
-
-
-
-/*
-package pt.dt.requisitiontracker.dataloader;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
-import pt.dt.requisitiontracker.model.Role;
-import pt.dt.requisitiontracker.model.User;
-import pt.dt.requisitiontracker.model.Task;
-import pt.dt.requisitiontracker.service.RoleService;
-import pt.dt.requisitiontracker.service.TaskService;
-import pt.dt.requisitiontracker.service.UserService;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
-@Component
-public class InitialDataLoader implements ApplicationListener<ContextRefreshedEvent> {
-
-    private UserService userService;
-    private TaskService taskService;
-    private RoleService roleService;
-    private final Logger logger = LoggerFactory.getLogger(InitialDataLoader.class);
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-    @Value("${default.admin.mail}")
-    private String defaultAdminMail;
-    @Value("${default.admin.name}")
-    private String defaultAdminName;
-    @Value("${default.admin.password}")
-    private String defaultAdminPassword;
-    @Value("${default.admin.image}")
-    private String defaultAdminImage;
-
-    @Autowired
-    public InitialDataLoader(UserService userService, TaskService taskService, RoleService roleService) {
-        this.userService = userService;
-        this.taskService = taskService;
-        this.roleService = roleService;
-    }
-
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent event) {
-
-        //ROLES --------------------------------------------------------------------------------------------------------
-        roleService.createRole(new Role("ADMIN"));
-        roleService.createRole(new Role("USER"));
-        roleService.findAll().stream().map(role -> "saved role: " + role.getRole()).forEach(logger::info);
-
-        //USERS --------------------------------------------------------------------------------------------------------
-        //1
-        User admin = new User(
-                defaultAdminMail,
-                defaultAdminName,
-                defaultAdminPassword,
-                defaultAdminImage);
-        userService.createUser(admin);
-        userService.changeRoleToAdmin(admin);
-
-        */
-/*User VC = new User(
-                "vchancellor@gmail.com",
-                "Vice-Chancellor",
-                "112233",
-                "images/admin.png");
-        userService.createUser(VC);
-        userService.changeRoleToAdmin(VC);*//*
-
-        //2
-        User dean = new User(
-                "dean@gmail.com",
-                "dean",
-                "112233",
-                "images/admin.png");
-        userService.createUser(dean);
-        userService.changeRoleToAdmin(dean);
-
-        User hod= new User(
-                "hodit@gmail.com",
-                "hod(IT)",
-                "112233",
-                "images/admin.png");
-        userService.createUser(hod);
-        userService.changeRoleToAdmin(hod);
-
-        User hod1= new User(
-                "hodmecha@gmail.com",
-                "hod(Mechatronics)",
-                "112233",
-                "images/admin.png");
-        userService.createUser(hod1);
-        userService.changeRoleToAdmin(hod1);
-
-        User accounts= new User(
-                "accounts@gmail.com",
-                "accounts",
-                "112233",
-                "images/admin.png");
-        userService.createUser(accounts);
-        userService.changeRoleToAdmin(accounts);
-        //3
-        */
-/*User manager = new User(
-                "james@gmail.com",
-                "Doctor",
-                "112233",
-                "images/admin.png");
-        userService.createUser(manager);
-        userService.changeRoleToAdmin(manager);
-
-
-        //3
-        userService.createUser(new User(
-                "mark@gmail.com",
-                "Mark",
-                "112233",
-                "images/mark.jpg"));
-
-        //4
-        userService.createUser(new User(
-                "ann@gmail.com",
-                "Ann",
-                "112233",
-                "images/ann.jpg"));
-
-
-*//*
-
-        userService.findAll().stream()
-                .map(u -> "saved user: " + u.getName())
-                .forEach(logger::info);
-
-
-        //TASKS --------------------------------------------------------------------------------------------------------
-        //tasks from Web Design Checklist
-        //https://www.beewits.com/the-ultimate-web-design-checklist-things-to-do-when-launching-a-website/
-
-        LocalDate today = LocalDate.now();
-
-        */
-/*//*
-/ Task 1: Initial Consultation and Diagnosis
-        taskService.createTask(new Task(
-                "Initial Consultation and Diagnosis",
-                "Conduct initial examination of the patient. Collect patient's medical history and current symptoms. Diagnose patient's condition and discuss potential treatment options.",
-                today.minusDays(40),
-                true,
-                userService.getUserByEmail("ann@gmail.com").getName(),
-                userService.getUserByEmail("ann@gmail.com"),
-                "filename"
-        ));
-        new Task("Initial Consultation and Diagnosis", "Conduct initial examination of the patient. Collect patient's medical history and current symptoms. Diagnose patient's condition and discuss potential treatment options.", today.minusDays(40), true, "Ann", userService.getUserByEmail("ann@gmail.com"), "filename");
-
-// Task 2: Prescription and Treatment Plan
-        taskService.createTask(new Task(
-                "Prescription and Treatment Plan",
-                "Define and prescribe medication based on the diagnosis. Outline treatment plan including dosage, frequency, and duration of medication. Provide lifestyle and dietary recommendations. Schedule follow-up appointment to monitor progress.",
-                today.minusDays(30),
-                true,
-                userService.getUserByEmail("mark@gmail.com").getName(),
-                userService.getUserByEmail("mark@gmail.com"),
-                "filename"
-        ));
-
-
-
-        taskService.findAll().stream().map(t -> "saved task: '" + t.getName()
-                + "' for owner: " + getOwnerNameOrNoOwner(t)).forEach(logger::info);
-    }
-
-    private String getOwnerNameOrNoOwner(Task task) {
-        return task.getOwner() == null ? "no owner" : task.getOwner().getName();*//*
-
-    }
-}
-*/

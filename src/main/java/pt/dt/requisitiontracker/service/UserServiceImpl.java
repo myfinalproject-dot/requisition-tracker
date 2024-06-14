@@ -66,6 +66,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
     public boolean isUserEmailPresent(String email) {
         return userRepository.findByEmail(email) != null;
     }
@@ -92,22 +102,39 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAllContions(User signedUser) {
+    public List<User> findAllConditions(User signedUser) {
 
+        // Check if the signed-in user is a regular user
         if (signedUser.getRoles().contains(roleRepository.findByRole("USER"))) {
+            // Filter HOD based on the user's department
             return userRepository.findAll()
                     .stream()
-                    .filter(user -> user.getEmail().contains("hod"))
+                    .filter(user -> user.getEmail().contains("hod") && user.getDepartment().contains(signedUser.getDepartment()))
                     .collect(Collectors.toList());
-
-        } else if (signedUser.getEmail().contains("hod") || signedUser.getEmail().contains("dean") || signedUser.getEmail().contains("accounts")) {
+        }
+        else if (signedUser.getEmail().contains("hod") && signedUser.getRoles().contains(roleRepository.findByRole("ADMIN"))) {
             return userRepository.findAll()
                     .stream()
-                    .filter(user -> user.getEmail().contains("hod") || user.getEmail().contains("dean") || user.getEmail().contains("accounts") || user.getRoles().contains(roleRepository.findByRole("USER")))
+                    .filter(user -> user.getEmail().contains("hod") && user.getDepartment().contains(signedUser.getDepartment()) || user.getEmail().contains("accounts")|| user.getEmail().contains("dean") && user.getSchool().contains(signedUser.getSchool()))
+                    .collect(Collectors.toList());
+        }else if (signedUser.getEmail().contains("dean") && signedUser.getRoles().contains(roleRepository.findByRole("ADMIN"))) {
+            return userRepository.findAll()
+                    .stream()
+                    .filter(user -> user.getEmail().contains("dean") && user.getSchool().contains(signedUser.getSchool())  || user.getEmail().contains("chancellor") || user.getEmail().contains("accounts") )
+                    .collect(Collectors.toList());
+        }else if (signedUser.getEmail().contains("chancellor") && signedUser.getRoles().contains(roleRepository.findByRole("ADMIN"))) {
+            return userRepository.findAll()
+                    .stream()
+                    .filter(user -> user.getEmail().contains("chancellor")|| user.getEmail().contains("accounts") )
+                    .collect(Collectors.toList());
+        }else if (signedUser.getEmail().contains("accounts") && signedUser.getRoles().contains(roleRepository.findByRole("ADMIN"))) {
+            return userRepository.findAll()
+                    .stream()
+                    .filter(user -> user.getEmail().contains("chancellor") )
                     .collect(Collectors.toList());
         }
         else {
-            return userRepository.findAll() ;
+            return userRepository.findAll();
         }
     }
 

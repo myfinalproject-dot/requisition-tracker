@@ -11,7 +11,7 @@
     <groupId>pl.rengreen</groupId>
     <artifactId>requisition-tracker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>requisition-tracker</name>
+    <name>c</name>
     <description>Spring Boot application for task management</description>
 
     <properties>

@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pt.dt.requisitiontracker.model.Task;
 import pt.dt.requisitiontracker.model.User;
+import pt.dt.requisitiontracker.service.EmailService;
 import pt.dt.requisitiontracker.service.FileStorageService;
 import pt.dt.requisitiontracker.service.TaskService;
 import pt.dt.requisitiontracker.service.UserService;
@@ -31,6 +32,7 @@ public class TaskController {
 
     private TaskService taskService;
     private UserService userService;
+    private EmailService emailService;
 
     @Autowired
     private FileStorageService fileStorageService;
@@ -44,11 +46,17 @@ public class TaskController {
     @GetMapping("/tasks")
     public String listTasks(Model model, Principal principal, SecurityContextHolderAwareRequestWrapper request) {
         prepareTasksListModel(model, principal, request);
+        String email = principal.getName();
+        User signedUser = userService.getUserByEmail(email);
+        prepareTasksListModel(model, signedUser);
         model.addAttribute("onlyInProgress", false);
         return "views/tasks";
     }
 
-
+    private void prepareTasksListModel(Model model, User signedUser) {
+        model.addAttribute("tasks", taskService.findByOwnerOrderByDateDesc(signedUser));
+        model.addAttribute("signedUser", signedUser);
+    }
 
     @GetMapping("/progress")
     public String listProgress(Model model, Principal principal, SecurityContextHolderAwareRequestWrapper request) {
@@ -187,13 +195,16 @@ public class TaskController {
 
     @GetMapping("/task/mark-done/{id}")
     public String setTaskCompleted(@PathVariable Long id) {
-        taskService.setTaskCompleted(id);
+        Task task= taskService.setTaskCompleted(id);
+        emailService.sendStatusUpdateEmail(task.getOwner(), task);
         return "redirect:/tasks";
     }
 
     @GetMapping("/task/unmark-done/{id}")
     public String setTaskNotCompleted(@PathVariable Long id) {
-        taskService.setTaskNotCompleted(id);
+        Task task = taskService.setTaskNotCompleted(id);
+        emailService.sendStatusUpdateEmail(task.getOwner(), task);
+
         return "redirect:/tasks";
     }
 

@@ -30,13 +30,13 @@
 
                 <thead class="table-primary">
                 <tr>
-                    <th style="width:40%" class="text-left">Task name</th>
-                    <th style="width:12%">Date</th>
+                    <th style="width:22%" class="text-left">Requisition Type</th>
+                    <th style="width:12%">Due Date</th>
                     <th style="width:8%" class="d-none d-lg-table-cell">Days left</th>
                     <th style="width:8%">Completed</th>
-                    <th style="width:8%" class="d-none d-lg-table-cell">Task owner</th>
-                    <th style="width:8%" class="d-none d-lg-table-cell">Task creator</th>
-                    <th style="width:16%" class="d-none d-lg-table-cell" colspan="2">Actions</th>
+                    <th style="width:20%" class="d-none d-lg-table-cell">Request Handler</th>
+                    <th style="width:20%" class="d-none d-lg-table-cell">Request Owner</th>
+                    <th style="width:10%" class="d-none d-lg-table-cell" >Action</th>
                 </tr>
 
                 </thead>
@@ -92,21 +92,6 @@
                                         <span data-toggle="tooltip" data-placement="top" data-html="true"
                                                 title="Only task owner or admin can edit this task">
                                             <a th:href="${'/task/edit/' + t.id}" class="btn btn-outline-secondary btn-sm disabled">Edit</a>
-                                        </span>
-                                    </div>
-                                    <!--delete button-->
-                                    <div th:if="${isAdminSigned or isThisOneSigned}" class="d-lg-none m-2">
-                                        <a data-toggle="modal" data-target="#modal-delete"
-                                           th:attr="data-target='#modal-delete'+${t.id}"
-                                           th:href="${'/task/delete/' + t.id}"
-                                           class="btn btn-outline-danger btn-sm">Delete
-                                        </a>
-                                    </div>
-
-                                    <div th:unless="${isAdminSigned or isThisOneSigned}" class="d-lg-none m-2">
-                                        <span data-toggle="tooltip" data-placement="top" data-html="true"
-                                                title="Only task owner or admin can delete this task">
-                                            <a href="" class="btn btn-outline-secondary btn-sm disabled">Delete</a>
                                         </span>
                                     </div>
                                 </div>
@@ -171,48 +156,6 @@
                         <a th:href="${'/task/edit/' + t.id}" class="btn btn-outline-secondary btn-sm disabled">Edit</a>
                         </span>
                     </td>
-
-                    <!--delete button-->
-                    <td th:if="${isAdminSigned or isThisOneSigned}" class="d-none d-lg-table-cell">
-                        <a data-toggle="modal" data-target="#modal-delete"
-                           th:attr="data-target='#modal-delete'+${t.id}"
-                           th:href="${'/task/delete/' + t.id}"
-                           class="btn btn-outline-danger btn-sm">Delete
-                        </a>
-                    </td>
-
-                    <td th:unless="${isAdminSigned or isThisOneSigned}" class="d-none d-lg-table-cell">
-                        <span data-toggle="tooltip" data-placement="top" data-html="true"
-                              title="Only task owner or admin can delete this task">
-                        <a href="" class="btn btn-outline-secondary btn-sm disabled">Delete</a>
-                    </span>
-                    </td>
-
-                    <!--modal for delete confirmation-->
-                    <div class="modal" th:id="modal-delete+${t.id }">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h3 class="modal-title text-danger">Delete Confirmation</h3>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p th:text="${'Are you sure you want to delete task: &quot '+t.name+'&quot?'}"></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
-                                        Cancel
-                                    </button>
-                                    <a th:href="${'/task/delete/' + t.id}">
-                                        <span class="btn btn-danger">Delete</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end of modal for delete confirmation-->
-
                 </tr>
                 </tbody>
             </table>

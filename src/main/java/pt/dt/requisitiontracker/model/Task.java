@@ -51,12 +51,10 @@
         private boolean statusUpdated;
 
 
+        @Setter
         @Getter
         @Enumerated(EnumType.STRING)
         private Status status;
-
-
-
 
         public Task(@NotEmpty String name,
                     @NotEmpty @Size(max = 1200) String description,
@@ -144,11 +142,6 @@
         @Override
         public int hashCode() {
             return Objects.hash(id, name, description, date, isCompleted, creatorName, owner, filename, downloadlink);
-        }
-
-
-        public void setStatus(Status status) {
-            this.status = status;
         }
 
 

@@ -113,9 +113,7 @@
 
                     <!-- Status Selection Dropdown -->
                     <td>
-
                         <!-- Modal -->
-
                         <form id="updateForm" th:action="@{/profile/update-status}" method="post">
                             <input type="hidden" name="taskId" th:value="${t.id}" />
                             <label class="d-none d-lg-table-cell">
@@ -124,7 +122,7 @@
                                     <option value="REJECTED" th:selected="${t.status == 'REJECTED'}">REJECT</option>
                                 </select>
                             </label>
-                            <button type="submit" onclick="showStatusUpdatedMessage()" class="d-none d-lg-table-cell">Update</button>
+                            <button  type="submit" onclick="showStatusUpdatedMessage()" class="d-none d-lg-table-cell">Update</button>
                         </form>
                         <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">

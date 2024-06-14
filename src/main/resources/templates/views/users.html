@@ -45,7 +45,8 @@
                     <td th:text="${user.email}" class="d-none d-lg-table-cell"></td>
 
                     <!--Tasks in  progress-->
-                    <td th:if="${user.getTasksInProgress().size() gt 0}">
+
+                    <td th:if="${user.getTasksInProgress().size() > 0}">
                         <ol class="pl-3">
                             <li th:each="t : ${user.getTasksInProgress()}">
                                 <span th:text="${t.name}"></span>
@@ -53,6 +54,15 @@
                             </li>
                         </ol>
                     </td>
+
+                    <!-- <td th:if="${user.getTasksInProgress().size() gt 0}">
+                         <ol class="pl-3">
+                             <li th:each="t : ${user.getTasksInProgress()}">
+                                 <span th:text="${t.name}"></span>
+                                 &lt;!&ndash;/*/ <th:block th:include="fragments/days-left-until-deadline :: daysLeft(${t})"></th:block> /*/&ndash;&gt;
+                             </li>
+                         </ol>
+                     </td>-->
                     <td th:if="${user.getTasksInProgress().size()==0}">0</td>
 
                     <!--Tasks completed-->

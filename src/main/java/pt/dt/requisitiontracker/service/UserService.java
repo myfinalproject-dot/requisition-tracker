@@ -13,7 +13,9 @@ public interface UserService {
 
     User getUserByEmail(String email);
 
-    
+    User save(User user);
+
+    User findByEmail(String email);
 
     User getUserById(Long userId);
 
@@ -21,10 +23,11 @@ public interface UserService {
 
     List<User> getAllUsers();
 
-    List<User> findAllContions(User signedUser);
+    List<User> findAllConditions(User signedUser);
 
 
     boolean isUserEmailPresent(String email);
 
     boolean isUserNamePresent(String name);
+
 }

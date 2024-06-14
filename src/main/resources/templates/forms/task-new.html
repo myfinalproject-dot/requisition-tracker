@@ -24,16 +24,31 @@
                 <input type="hidden" th:field="*{owner}"/>
 
                 <!--name-->
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="name" class="form-control-label">Requisition Name</label>
+                    <select class="form-control" th:field="*{name}" id="name">
+                        <option value="" enabled selected><&#45;&#45;Select requisition type&ndash;&gt;</option>
+                        <option value="Consumables">Consumables</option>
+                        <option value="Research Grants">Research Grants</option>
+                        <option value="Project Funding">Project Funding</option>
+                        &lt;!&ndash; Add more options as needed &ndash;&gt;
+                    </select>
+                </div>-->
+                <div class="form-group">
+                    <label for="name" class="form-control-label">Requisition Type</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="fas fa-pen"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control"
-                               th:field="*{name}" id="name"/>
+                        <select class="form-control" th:field="*{name}" id="name">
+                            <option value="" enabled selected><--Select requisition type--></option>
+                            <option value="Consumables">Consumables</option>
+                            <option value="Research Grants">Research Grants</option>
+                            <option value="Project Funding">Project Funding</option>
+                            <!-- Add more options as needed -->
+                        </select>
                     </div>
                     <div class="text text-danger"
                          th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
@@ -70,10 +85,15 @@
 
                 <!--file-->
                 <div class="form-group">
-                    <label  class="form-control-label">Upload Requisition file</label>
+                    <label class="form-control-label">Upload Requisition file (.pdf)</label>
+                    <input type="file" name="file" class="form-control" id="file" accept=".pdf" onchange="validateFile()" />
+                </div>
+
+                <!--<div class="form-group">
+                    <label  class="form-control-label">Upload Requisition file(.pdf)</label>
                     <input type="file" name="file" class="form-control"
                            id="file" />
-                </div>
+                </div>-->
 
                 <input type="submit" value="Submit" class="btn btn-primary"/>
             </form>
@@ -85,6 +105,20 @@
 <footer class="footer">
     <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
 </footer>
+
+<script>
+    function validateFile() {
+        const fileInput = document.getElementById('file');
+        const filePath = fileInput.value;
+        const allowedExtensions = /(\.pdf)$/i;
+        if (!allowedExtensions.exec(filename)) {
+            alert('Please upload file having extensions .pdf only.');
+            fileInput.value = '';
+            return false;
+        }
+        return true;
+    }
+</script>
 
 </body>
 </html>

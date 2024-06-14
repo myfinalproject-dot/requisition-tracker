@@ -75,17 +75,19 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void setTaskCompleted(Long id) {
+    public Task setTaskCompleted(Long id) {
         Task task = taskRepository.getOne(id);
         task.setCompleted(true);
         taskRepository.save(task);
+        return task;
     }
 
     @Override
-    public void setTaskNotCompleted(Long id) {
+    public Task setTaskNotCompleted(Long id) {
         Task task = taskRepository.getOne(id);
         task.setCompleted(false);
         taskRepository.save(task);
+        return task;
     }
 
     @Override

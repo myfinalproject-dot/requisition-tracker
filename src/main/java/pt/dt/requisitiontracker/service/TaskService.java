@@ -18,9 +18,9 @@ public interface TaskService {
 
     List<Task> findByOwnerOrderByDateDesc(User user);
 
-    void setTaskCompleted(Long id);
+    Task setTaskCompleted(Long id);
 
-    void setTaskNotCompleted(Long id);
+    Task setTaskNotCompleted(Long id);
 
     List<Task> findFreeTasks();
 
